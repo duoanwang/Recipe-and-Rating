@@ -108,7 +108,6 @@ Calorie Count (Numerical)
 
 ### Features:
 - **nutrition('total_fat', 'sugar', 'sodium', 'protein', 'saturated_fat', 'carbohydrates')**
-- **tags**
 - **n_step**
 - **n_ingradient**
 
