@@ -75,28 +75,52 @@ For this analysis, we
 - **Null Hypothesis (H₀):** The calorie distributions of desserts and courses are the same.
 - **Alternative Hypothesis (Hₐ):** The calorie distributions of desserts and courses differ.
 
-## Test Statistic
+### Test Statistic
 The test statistic used is the **Total Variation Distance (TVD)**, which measures the overall difference between two distributions.
 
-## Significance Level
+### Significance Level
 The significance level (α) is set to **0.05**.
 
-## Results
+### Results
 - **Observed TVD:** 0.0000
 - **P-value:** 0.000000
 
-## Conclusion
+### Conclusion
 Since the p-value (0.000000) is less than the significance level (0.05), we reject the null hypothesis. This suggests that the calorie distributions of desserts and courses are significantly different.
 
-## Justification
+### Justification
 The Total Variation Distance (TVD) is an appropriate test statistic for this hypothesis because it captures the overall differences between two distributions without assuming normality or other specific distributional properties.
 
-## Visualization
+### Visualization
 The histogram below illustrates the null distribution of permuted TVDs, with a vertical red line indicating the observed TVD:
 
 ## Framing a Prediction Problem
 
----
+### Prediction
+Predict the Calories of a Recipe
+
+### Type
+Regression
+
+### Response Variable
+Calorie Count (Numerical)
+
+
+### Features:
+- **nutrition('total_fat', 'sugar', 'sodium', 'protein', 'saturated_fat', 'carbohydrates')**
+- **tags**
+- **n_step**
+- **n_ingradient**
+
+### Reason for Choosing:
+Helps quantify calorie prediction for real-world applications like meal planning.
+
+### Metric
+Mean Absolute Error (MAE) or Mean Squared Error (MSE).
+
+
+
+
 
 ## Baseline Model
 
