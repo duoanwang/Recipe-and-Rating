@@ -51,7 +51,7 @@ Here are the columns of the final dataframe.
 | `'carbohydrates (PDV)'` | float64        |
 
 ### Univariable Analysis
-For this analysis, we examine the distribution of the calories in a recipe. We can see from the plot that it is heavily skewed due to extreme outliers. The majority of the data points are concentrated near zero or within a relatively low range of calorie values(lower than 1000). The large difference between the upper fence and the maximum value highlights the outliers which extending up to 45,609 calories.
+For this analysis, we examine the distribution of the calories in a recipe. We can see from the boxplot that it is heavily skewed due to extreme outliers. The majority of the data points are concentrated near zero or within a relatively low range of calorie values(lower than 1000). The large difference between the upper fence and the maximum value highlights the outliers which extending up to 45,609 calories.
 
 <iframe
   src="assets/calories dist.html"
