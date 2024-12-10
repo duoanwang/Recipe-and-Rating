@@ -97,7 +97,7 @@ The histogram below illustrates the null distribution of permuted TVDs, with a v
 ## Framing a Prediction Problem
 
 ### Prediction
-Predict the Calories of a Recipe
+Predict the calorie count of a recipe based on its nutritional and preparation-related features.
 
 ### Type
 Regression
@@ -106,19 +106,38 @@ Regression
 Calorie Count (Numerical)
 
 
-### Features:
-- **nutrition('total_fat', 'sugar', 'sodium', 'protein', 'saturated_fat', 'carbohydrates')**
-- **n_step**
-- **n_ingradient**
+## Features
+We use features that are both descriptive and predictive of calorie count:
+
+1. **Nutritional Information**:
+   - **`total_fat`**: Recipes with higher fat content typically have higher calorie counts, as fat is calorie-dense (9 calories per gram).
+   - **`sugar`**: Recipes with high sugar content, like desserts, often have higher calorie counts due to added sugars.
+   - **`sodium`**: Although sodium itself has no calories, it may correlate with recipe types
+   - **`protein`**: Protein contributes to calorie count (4 calories per gram) and is often higher in main courses.
+   - **`saturated_fat`**: A type of fat that contributes heavily to calorie count and can distinguish between healthy and indulgent recipes.
+   - **`carbohydrates`**: Carbs are a major calorie source (4 calories per gram), particularly in baked goods, desserts, and grains.
+
+2. **Preparation Details**:
+   - **`n_step`**: The number of preparation steps can indicate recipe complexity, indirectly reflecting calorie level.
+   - **`n_ingredient`**: Recipes with more ingredients may involve calorie-dense items like butter, sugar, or oils, leading to higher calorie counts.
 
 ### Reason for Choosing:
 Helps quantify calorie prediction for real-world applications like meal planning.
 
 ### Metric
-Mean Absolute Error (MAE) or Mean Squared Error (MSE).
+RSME
 
+### WHY RMSE?
+1. **Definition**:
+   RMSE is defined as:
+   ```
+   RMSE = sqrt(1/n * sum((y_i - y_hat_i)^2))
+   ```
+   where `y_i` is the true calorie count, and `y_hat_i` is the predicted calorie count.
 
+2. **Interpretability**: RMSE is expressed in the same units as the response variable (calories), making it easy to understand.
 
+3. **Penalty for Larger Errors**: RMSE penalizes large errors more heavily than MAE, making it ideal for calorie predictions where overfitting or underfitting can significantly impact user decisions.
 
 
 ## Baseline Model
