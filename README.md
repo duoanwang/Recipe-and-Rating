@@ -259,8 +259,8 @@ We use features that are both descriptive and predictive of calorie count:
    - **`hour_cook`**: A binary feature indicating whether a recipe falls into the "hour_cook" category (1) or not (0) represent 60 minutes and less cooking time.
 
 ### Reason for Choosing:
-Helps quantify calorie prediction for real-world applications like meal planning.
 
+The selected features were chosen because they directly correlate with calorie count by macronutrient information and cooking attributes that influence calorie variations in recipes. This model has practical applications in real-world scenarios such as personalized meal planning, dietary tracking, or recipe modification for health-conscious individuals. The diversity of features, combining nutritional details with contextual preparation information (e.g., **`n_step`**）, allows the model to take a holistic approach to calorie prediction. Additionally, binary categories such as **`desserts`** and **`hour_cook`** provide clear distinctions, enabling the model to better capture the underlying patterns in different recipe types.
 ### Metric
 RSME
 
