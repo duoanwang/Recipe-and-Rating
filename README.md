@@ -186,7 +186,7 @@ The Total Variation Distance (TVD) is an appropriate test statistic for this hyp
 The histogram below illustrates the null distribution of permuted TVDs, with a vertical red line indicating the observed TVD:
 
 <iframe
-  src="assets/sugar_vs_no_sugar_ks.html"
+  src="assets/sugar_vs_no_sugar_tvd.html"
   width="600"
   height="400"
   frameborder="0"
