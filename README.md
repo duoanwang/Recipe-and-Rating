@@ -221,17 +221,21 @@ The baselin model is a **Linear Regression** model, implemented using a scikit-l
 ### Features in the Model
 The model uses the following features to predict calorie count:
 
-Quantitative Features (3):
+### Quantitative Features (3):
 - **`sugar`**: Represents the sugar content in grams.
 - **`total_fat`**: Represents the fat content in grams.
 - **`n_steps`**: Represents the number of preparation steps in the recipe.
-  - **Encoding**: These features are standardized using `StandardScaler` to ensure all features contribute equally to the regression model.
-    
+
+### Categorical Feature (1):
+- **`desserts`**: A binary feature indicating whether a recipe falls into the "desserts" category (1) or not (0).
+
 Feature Transformation
 The preprocessing steps include:
 
 1. **Standardization**:
    - Applied to quantitative features to ensure they have zero mean and unit variance.
+2. **One-Hot Encoding**:
+   - Applied to the categorical feature to convert it into a binary format suitable for regression.
 
 # Model Performance
 
@@ -244,26 +248,27 @@ The preprocessing steps include:
 ## Performance Metrics
 
 - **RMSE**
-   - Training set: 202.570722
-   - Test set: 195.281338
+   - Training set: 198.726596
+   - Test set: 191.995719
 - **MSE**
-  - Training set: 41034.897364
-  - Test set: 38134.801087
+  - Training set: 39492.259841
+  - Test set: 36862.356260
 - **R² Score**
-  - Training set: 0.902043 
-  - Test set: 0.891276  
+  - Training set: 0.905725
+  - Test set: 0.894903
 
 ---
 
 ## Model Performance Analysis
 
-### Strengths:
+## Strengths
 - **High R² Score**: The \( R^2 \) score of 0.89 on the test set indicates that the model explains 89% of the variance in calorie counts, demonstrating a strong fit.
-- **Low Training RMSE**: The training RMSE of 202.57 shows that the model performs well on the training data.
+- **Low Prediction Error**: The RMSE values for both the training and test sets are close, suggesting that the model's predictions are consistent and accurate.
 
-### Weaknesses:
-- **Overfitting**: The gap between the training RMSE (202.57) and test RMSE (195.28) suggests that the model is slightly overfitting to the training data, which limits its ability to generalize to unseen data.
-- **Large Test RMSE**: The test RMSE of 195.28 means that, on average, the model's predictions deviate by about 195 calories, which might not be ideal for applications requiring high precision.
+## Weaknesses
+- **Overfitting**: The slightly higher R² score on the training set compared to the test set (0.905 vs. 0.894) suggests a minor overfitting issue.
+- **Prediction Magnitude**: The RMSE of 191.99 on the test set indicates that the model’s predictions deviate by nearly 192 calories on average, which may not be precise enough for applications demanding high accuracy.
+
 
 
 ## Final Model
