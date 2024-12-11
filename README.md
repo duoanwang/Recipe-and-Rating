@@ -3,6 +3,38 @@ Authors: Juntong Ye & Anduo Wang
 ---
 
 ## Introduction
+Having knowledge about the relationship between recipe attributes and ratings offers important insights into how nutrition and food preferences relate. In order to investigate the calorie content of recipes, identify the critical factors influencing calories, and investigate if calorie count affects user ratings, we analyze a dataset of recipes and ratings. In addition to being an intriguing investigation of the relationship between flavor and nutrition, this study offers readers useful advice on how to strike a balance between enjoyment and health when making cooking decisions. This investigation clarifies how ingredients, preparation methods, and user preferences influence the meals we develop, eat, and enjoy, regardless of your interests as a foodie or a health-conscious person.
+
+The two dataset consisting of recipes and ratings posted since 2008 on [food.com](https://www.food.com/). The original purpose of the datasets is for the recommender system research paper, Generating Personalized Recipes from Historical User Preferences by Majumder et al.
+
+The first dataset, recipe, contains 83782 rows, indicating 83782 unique recipes, with 10 columns recording the following information:
+
+| Column           | Description                                                                 |
+|:-----------------|:----------------------------------------------------------------------------|
+| 'name'           | Recipe name                                                                 |
+| 'id'             | Recipe ID                                                                   |
+| 'minutes'        | Minutes to prepare recipe                                                   |
+| 'contributor_id' | User ID who submitted this recipe                                           |
+| 'submitted'      | Date recipe was submitted                                                   |
+| 'tags'           | Food.com tags for recipe                                                    |
+| 'nutrition'      | Nutrition information in the form [calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), carbohydrates (PDV)]; PDV stands for “percentage of daily value”                      |
+| 'n_steps'        | Number of steps in recipe                                                   |
+| 'steps'          | Text for recipe steps, in order                                             |
+| 'description'    | User-provided description                                                   |
+| 'ingredients'    | Text for recipe ingredients                                                 |
+| 'n_ingredients'  | Number of ingredients in recipe                                             |
+
+Here is the other dataset, interaction, which contains 731927 rows with a review and rating from the user on a specific recipe. The columns it includes are:
+
+| Column     | Description                          |
+|:-----------|:-------------------------------------|
+| 'user_id'  | User ID                              |
+| 'recipe_id'| Recipe ID                            |
+| 'date'     | Date of interaction                  |
+| 'rating'   | Rating given                         |
+| 'review'   | Review text                          |
+
+By combining these 2 dataset and perform analysis, we are able to understand the elements that influence a recipe's caloric content and its relationship to user ratings, we can uncover patterns in how people perceive and enjoy food. Do meals with more calories tend to be more popular, or are nutritional factors important in their attract? This analysis gives people the ability to make educated dietary decisions, helps recipe developers create recipes that suit a variety of tastes, and offers insights into customer behavior. In the end, investigating these relationships improves our comprehension of how innovative cooking fits in with health-conscious trends.
 
 ---
 
