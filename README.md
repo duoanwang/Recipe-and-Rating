@@ -294,7 +294,7 @@ The preprocessing steps include:
 ## Model Performance Analysis
 
 ## Strengths
-- **High R² Score**: The \( R^2 \) score of 0.89 on the test set indicates that the model explains 89% of the variance in calorie counts, demonstrating a strong fit.
+- **High R² Score**: The R² score of 0.89 on the test set indicates that the model explains 89% of the variance in calorie counts, demonstrating a strong fit.
 - **Low Prediction Error**: The RMSE values for both the training and test sets are close, suggesting that the model's predictions are consistent and accurate.
 
 ## Weaknesses
@@ -316,7 +316,7 @@ The preprocessing steps include:
    - The sum of `sugar`, `protein`, and `carbohydrates`.
    - **Reason for Inclusion**: Macronutrients directly contribute to calorie content, and this feature aggregates their combined impact into a single variable.
 
-3.**`hour_cook`**:
+3. **`hour_cook`**:
    - **Reason for Inclusion**: Cooking time under 60 minutes to see if impact of calories.
 
 ---
@@ -372,14 +372,14 @@ The preprocessing steps include:
 - **Root Mean Squared Error (RMSE)**: Evaluates the average prediction error, penalizing larger errors more heavily.
 
 ### Hypotheses
-- **Null Hypothesis (\( H_0 \))**: The model performs equally well for desserts (Group X) and non-desserts (Group Y).
-- **Alternative Hypothesis (\( H_a \))**: The model performs differently for desserts and non-desserts.
+- **Null Hypothesis H₀**: The model performs equally well for desserts (Group X) and non-desserts (Group Y).
+- **Alternative Hypothesis Hₐ**: The model performs differently for desserts and non-desserts.
 
 ### Test Statistic
 - Absolute difference in RMSE between desserts and non-desserts groups.
 
 ### Significance Level
-- (\( \alpha \)) = 0.05: The standard threshold for rejecting the null hypothesis.
+- α = 0.05: The standard threshold for rejecting the null hypothesis.
 
 ### Results
 - **Observed RMSE Difference**: 51.8725
@@ -393,7 +393,7 @@ The preprocessing steps include:
 ></iframe>
 
 ### Conclusion
-- Since the **p-value (1)** is greater than the significance level (\( \alpha = 0.05 \)), we **fail to reject the null hypothesis**.
+- Since the **p-value (1)** is greater than the significance level α, we **fail to reject the null hypothesis**.
 - This indicates that there is insufficient evidence to suggest the model performs fair for dessert and non-dessert recipes. The observed difference in RMSE is likely due to random chance.
 
 ---
