@@ -61,8 +61,26 @@ For this analysis, we examine the distribution of the calories in a recipe. We c
 ></iframe>
 
 ### Bivariate Analysis
-For this analysis, we 
+For this analysis, we explored the relationship between the rating and the calories. From this plot, we found that the data points are densely packed around ratings between 3 and 5. Lower ratings (e.g., 1-2) do not show many high-calorie items. Higher ratings are associated with a broader range of calorie counts, including some extremely high-calorie items, as indicated by larger, brighter bubbles. Lower ratings (1-2) are predominantly linked to low-calorie items, with fewer high-calorie outliers.
 
+<iframe
+  src="assets/calories vs. rating.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+### Interesting Aggregates
+We are interested in whether recipes with higher calories need more time to prepare, so we investigated their relationship by creating a pivot table and then visualize it. First, We group the recipes by `'minutes'` and calculate the average calories for each preparation time using pd.pivot_table(). We categorize `'minutes'` into meaningful bins (e.g., 0-30 mins, 30-60 mins) to make the analysis clearer. Finally, to visualize the results, we create a bar chart using Plotly to show the average calories for each preparation time category or bin. This helps us understand how calorie counts vary with different preparation times.
+
+<iframe
+  src="assets/avg calories by minutes.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+By examine this plot, we noticed that the calories increases as the prepare time increases.
 
 ---
 
@@ -120,7 +138,6 @@ We use features that are both descriptive and predictive of calorie count:
 
 2. **Preparation Details**:
    - **`n_step`**: The number of preparation steps can indicate recipe complexity, indirectly reflecting calorie level.
-   - **`n_ingredient`**: Recipes with more ingredients may involve calorie-dense items like butter, sugar, or oils, leading to higher calorie counts.
 
 ### Reason for Choosing:
 Helps quantify calorie prediction for real-world applications like meal planning.
@@ -158,20 +175,13 @@ Quantitative Features (3):
 - **`total_fat`**: Represents the fat content in grams.
 - **`n_steps`**: Represents the number of preparation steps in the recipe.
   - **Encoding**: These features are standardized using `StandardScaler` to ensure all features contribute equally to the regression model.
-
-Nominal Features (1):
-- **`tags`**: Represents the tags of the recipe (e.g., "dessert," "north-american", "60-minutes-or-less").
-  - **Encoding**: Transformed using `OneHotEncoder` to create binary indicators for each tags.
-
+    
 Feature Transformation
 The preprocessing steps include:
 
 1. **Standardization**:
    - Applied to quantitative features to ensure they have zero mean and unit variance.
 
-2. **One-Hot Encoding**:
-   - Converts nominal categories in the `tags` feature into binary columns, enabling the model to use categorical information.
-     
 # Model Performance
 
 ## Metrics Used
@@ -183,28 +193,74 @@ The preprocessing steps include:
 ## Performance Metrics
 
 - **RMSE**
-   - Training set: 63.14
-   - Test set:194.77
+   - Training set: 202.570722
+   - Test set: 195.281338
 - **MSE**
-  - Training set: 3986.18 
-  - Test set: 37937.27  
+  - Training set: 41034.897364
+  - Test set: 38134.801087
 - **R² Score**
-  - Training set: 0.99
-  - Test set:0.89   
+  - Training set: 0.902043 
+  - Test set: 0.891276  
+
+---
 
 ## Model Performance Analysis
 
 ### Strengths:
 - **High R² Score**: The \( R^2 \) score of 0.89 on the test set indicates that the model explains 89% of the variance in calorie counts, demonstrating a strong fit.
-- **Low Training RMSE**: The training RMSE of 63.14 shows that the model performs well on the training data.
+- **Low Training RMSE**: The training RMSE of 202.57 shows that the model performs well on the training data.
 
 ### Weaknesses:
-- **Overfitting**: The gap between the training RMSE (63.14) and test RMSE (194.77) suggests that the model is overfitting to the training data, which limits its ability to generalize to unseen data.
-- **Large Test RMSE**: The test RMSE of 194.77 means that, on average, the model's predictions deviate by about 195 calories, which might not be ideal for applications requiring high precision.
-
+- **Overfitting**: The gap between the training RMSE (202.57) and test RMSE (195.28) suggests that the model is slightly overfitting to the training data, which limits its ability to generalize to unseen data.
+- **Large Test RMSE**: The test RMSE of 195.28 means that, on average, the model's predictions deviate by about 195 calories, which might not be ideal for applications requiring high precision.
 
 
 ## Final Model
+
+### Feature Engineering
+
+### Added Features
+1. **`sugar_total_fat_interaction`**:
+   - Represents the interaction between sugar and total fat content in a recipe.
+   - **Reason for Inclusion**: Recipes with both high sugar and high fat often have significantly higher calorie counts. This feature captures non-linear relationships between these two variables.
+
+2. **`nutrition_sum`**:
+   - The sum of `sugar`, `protein`, and `carbohydrates`.
+   - **Reason for Inclusion**: Macronutrients directly contribute to calorie content, and this feature aggregates their combined impact into a single variable.
+
+---
+
+### Algorithm Chosen
+- **Random Forest Regressor**:
+  - Random Forests handle non-linear relationships and feature interactions effectively, making them well-suited for predicting calorie counts.
+
+### Hyperparameter Tuning
+- **Best Hyperparameters**:
+  - `max_depth`: None (no limit on tree depth).
+  - `min_samples_leaf`: 2 (ensures each leaf node has at least 2 samples to prevent overfitting).
+  - `min_samples_split`: 2 (minimum samples required to split a node).
+  - `n_estimators`: 200 (builds 200 decision trees for higher accuracy).
+
+- **Hyperparameter Selection Method**:
+  - Used **GridSearchCV** with cross-validation (`cv=3`) to evaluate combinations of hyperparameters.
+  - Optimized based on negative Root Mean Squared Error (RMSE).
+
+---
+ Final Model Performance vs. Baseline Model
+
+| **Metric**           | **Baseline Model** | **Final Model** |
+|-----------------------|--------------------|-----------------|
+| **Train RMSE**        | 202.57             | 107.28          |
+| **Test RMSE**         | 195.28             | 133.57          |
+| **Train R²**          | 0.9020             | 0.9725          |
+| **Test R²**           | 0.8913             | 0.9491          |
+| **Train MSE**         | 41034.90           | 11509.09        |
+| **Test MSE**          | 38134.80           | 17841.06        |
+
+### Improvements
+1. **Lower RMSE**: The Final Model achieves significantly lower RMSE for both training and test sets, indicating improved accuracy.
+2. **Higher R²**: The Final Model explains 94.91% of the variance in the test data, compared to 89.13% for the Baseline Model.
+3. **Reduced Overfitting**: The smaller gap between training and test RMSE demonstrates better generalization to unseen data.
 
 ---
 
