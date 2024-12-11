@@ -372,7 +372,7 @@ The preprocessing steps include:
   - Optimized based on negative Root Mean Squared Error (RMSE).
 
 ---
-###Final Model Performance vs. Baseline Model
+### Final Model Performance vs. Baseline Model
 
 | **Metric**           | **Baseline Model** | **Final Model** |
 |-----------------------|--------------------|-----------------|
