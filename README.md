@@ -354,7 +354,7 @@ The preprocessing steps include:
 3. **Reduced Overfitting**: The smaller gap between training and test RMSE demonstrates better generalization to unseen data.
 
 <iframe
-  src="assets/feature_importance.html"
+  src="assets/feature_importance_final.html"
   width="600"
   height="400"
   frameborder="0"
