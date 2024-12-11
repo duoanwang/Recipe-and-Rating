@@ -189,6 +189,10 @@ We use features that are both descriptive and predictive of calorie count:
 
 2. **Preparation Details**:
    - **`n_step`**: The number of preparation steps can indicate recipe complexity, indirectly reflecting calorie level.
+   
+3. **Categorical**:
+   - **`desserts`**: A binary feature indicating whether a recipe falls into the "desserts" category (1) or not (0).
+   - **`hour_cook`**: A binary feature indicating whether a recipe falls into the "hour_cook" category (1) or not (0) represent 60 minutes and less cooking time.
 
 ### Reason for Choosing:
 Helps quantify calorie prediction for real-world applications like meal planning.
@@ -284,6 +288,9 @@ The preprocessing steps include:
    - The sum of `sugar`, `protein`, and `carbohydrates`.
    - **Reason for Inclusion**: Macronutrients directly contribute to calorie content, and this feature aggregates their combined impact into a single variable.
 
+3.**`hour_cook`**:
+   - **Reason for Inclusion**: Cooking time under 60 minutes to see if impact of calories.
+
 ---
 
 ### Algorithm Chosen
@@ -292,30 +299,30 @@ The preprocessing steps include:
 
 ### Hyperparameter Tuning
 - **Best Hyperparameters**:
-  - `max_depth`: None (no limit on tree depth).
+  - `max_depth`: 10.
   - `min_samples_leaf`: 2 (ensures each leaf node has at least 2 samples to prevent overfitting).
   - `min_samples_split`: 2 (minimum samples required to split a node).
-  - `n_estimators`: 200 (builds 200 decision trees for higher accuracy).
+  - `n_estimators`: 50 (builds 50 decision trees for higher accuracy).
 
 - **Hyperparameter Selection Method**:
   - Used **GridSearchCV** with cross-validation (`cv=3`) to evaluate combinations of hyperparameters.
   - Optimized based on negative Root Mean Squared Error (RMSE).
 
 ---
- Final Model Performance vs. Baseline Model
+###Final Model Performance vs. Baseline Model
 
 | **Metric**           | **Baseline Model** | **Final Model** |
 |-----------------------|--------------------|-----------------|
-| **Train RMSE**        | 202.57             | 107.28          |
-| **Test RMSE**         | 195.28             | 133.57          |
-| **Train R²**          | 0.9020             | 0.9725          |
-| **Test R²**           | 0.8913             | 0.9491          |
-| **Train MSE**         | 41034.90           | 11509.09        |
-| **Test MSE**          | 38134.80           | 17841.06        |
+| **Train RMSE**        | 198.73             | 138.51          |
+| **Test RMSE**         | 191.99             | 132.30          |
+| **Train R²**          | 0.9057             | 0.9542          |
+| **Test R²**           | 0.8949             | 0.9501          |
+| **Train MSE**         | 39492.26           | 19185.57        |
+| **Test MSE**          | 36862.36           | 17503.28        |
 
 ### Improvements
 1. **Lower RMSE**: The Final Model achieves significantly lower RMSE for both training and test sets, indicating improved accuracy.
-2. **Higher R²**: The Final Model explains 94.91% of the variance in the test data, compared to 89.13% for the Baseline Model.
+2. **Higher R²**: The Final Model explains 95.01% of the variance in the test data, compared to 89.49% for the Baseline Model.
 3. **Reduced Overfitting**: The smaller gap between training and test RMSE demonstrates better generalization to unseen data.
 
 <iframe
