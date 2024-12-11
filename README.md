@@ -363,35 +363,37 @@ The preprocessing steps include:
 ---
 
 ## Fairness Analysis
+
 ### Group Definitions
-- **Group X (High Sugar Recipes)**: Recipes with sugar daily value(percentage of daily value) > 45%.
-- **Group Y (Low Sugar Recipes)**: Recipes with sugar daily value(percentage of daily value) ≤ 10%.
-  
+- **Group X (Desserts)**: Recipes classified as desserts (`desserts = 1`).
+- **Group Y (Non-Desserts)**: Recipes not classified as desserts (`desserts = 0`).
+
 ### Evaluation Metric
 - **Root Mean Squared Error (RMSE)**: Evaluates the average prediction error, penalizing larger errors more heavily.
 
 ### Hypotheses
-- **Null Hypothesis (H₀):**: The model performs equally well for high sugar (Group X) and low sugar (Group Y) recipes.
-- **Alternative Hypothesis (Hₐ):**: The model performs differently for high sugar and low sugar recipes.
+- **Null Hypothesis (\( H_0 \))**: The model performs equally well for desserts (Group X) and non-desserts (Group Y).
+- **Alternative Hypothesis (\( H_a \))**: The model performs differently for desserts and non-desserts.
 
 ### Test Statistic
-- Absolute difference in RMSE between high sugar and low sugar groups.
+- Absolute difference in RMSE between desserts and non-desserts groups.
 
 ### Significance Level
-- (α) = 0.05 : The standard threshold for rejecting the null hypothesis.
-  
+- (\( \alpha \)) = 0.05: The standard threshold for rejecting the null hypothesis.
+
 ### Results
-- **Observed RMSE Difference**: 91.2998
-- **P-value**: 0.9974
+- **Observed RMSE Difference**: 51.8725
+- **P-value**: 1.0000
+  
 <iframe
-  src="assets/calories_distribution_by_sugar_group.html"
+  src="assets/fairness_test_desserts.html"
   width="600"
   height="400"
   frameborder="0"
 ></iframe>
 
 ### Conclusion
-- Since the **p-value (0.9974)** is greater than the significance level (\( \alpha = 0.05 \)), we **fail to reject the null hypothesis**.
-- This indicates that there is insufficient evidence to suggest the model performs unfairly for high sugar and low sugar recipes. The observed difference in RMSE is likely due to random chance.
+- Since the **p-value (1)** is greater than the significance level (\( \alpha = 0.05 \)), we **fail to reject the null hypothesis**.
+- This indicates that there is insufficient evidence to suggest the model performs fair for dessert and non-dessert recipes. The observed difference in RMSE is likely due to random chance.
 
 ---
