@@ -217,6 +217,51 @@ The preprocessing steps include:
 
 ## Final Model
 
+### Feature Engineering
+
+### Added Features
+1. **`sugar_total_fat_interaction`**:
+   - Represents the interaction between sugar and total fat content in a recipe.
+   - **Reason for Inclusion**: Recipes with both high sugar and high fat often have significantly higher calorie counts. This feature captures non-linear relationships between these two variables.
+
+2. **`nutrition_sum`**:
+   - The sum of `sugar`, `protein`, and `carbohydrates`.
+   - **Reason for Inclusion**: Macronutrients directly contribute to calorie content, and this feature aggregates their combined impact into a single variable.
+
+---
+
+### Algorithm Chosen
+- **Random Forest Regressor**:
+  - Random Forests handle non-linear relationships and feature interactions effectively, making them well-suited for predicting calorie counts.
+
+### Hyperparameter Tuning
+- **Best Hyperparameters**:
+  - `max_depth`: None (no limit on tree depth).
+  - `min_samples_leaf`: 2 (ensures each leaf node has at least 2 samples to prevent overfitting).
+  - `min_samples_split`: 2 (minimum samples required to split a node).
+  - `n_estimators`: 200 (builds 200 decision trees for higher accuracy).
+
+- **Hyperparameter Selection Method**:
+  - Used **GridSearchCV** with cross-validation (`cv=3`) to evaluate combinations of hyperparameters.
+  - Optimized based on negative Root Mean Squared Error (RMSE).
+
+---
+ Final Model Performance vs. Baseline Model
+
+| **Metric**           | **Baseline Model** | **Final Model** |
+|-----------------------|--------------------|-----------------|
+| **Train RMSE**        | 202.57             | 107.28          |
+| **Test RMSE**         | 195.28             | 133.57          |
+| **Train R²**          | 0.9020             | 0.9725          |
+| **Test R²**           | 0.8913             | 0.9491          |
+| **Train MSE**         | 41034.90           | 11509.09        |
+| **Test MSE**          | 38134.80           | 17841.06        |
+
+### Improvements
+1. **Lower RMSE**: The Final Model achieves significantly lower RMSE for both training and test sets, indicating improved accuracy.
+2. **Higher R²**: The Final Model explains 94.91% of the variance in the test data, compared to 89.13% for the Baseline Model.
+3. **Reduced Overfitting**: The smaller gap between training and test RMSE demonstrates better generalization to unseen data.
+
 ---
 
 ## Fairness Analysis
