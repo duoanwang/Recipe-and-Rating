@@ -1,8 +1,5 @@
 # Recipe and Rating: Analysis of Calories
 Authors: Juntong Ye & Anduo Wang
-
-Overview:
-
 ---
 
 ## Introduction
@@ -79,7 +76,6 @@ We are interested in whether recipes with higher calories need more time to prep
   height="600"
   frameborder="0"
 ></iframe>
-
 By examine this plot, we noticed that the calories increases as the prepare time increases.
 
 ---
