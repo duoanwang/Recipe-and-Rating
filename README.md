@@ -285,6 +285,29 @@ The preprocessing steps include:
 ---
 
 ## Fairness Analysis
+### Group Definitions
+- **Group X (High Sugar Recipes)**: Recipes with sugar daily value(percentage of daily value) > 45%.
+- **Group Y (Low Sugar Recipes)**: Recipes with sugar daily value(percentage of daily value) ≤ 10%.
+  
+### Evaluation Metric
+- **Root Mean Squared Error (RMSE)**: Evaluates the average prediction error, penalizing larger errors more heavily.
 
+### Hypotheses
+- **Null Hypothesis (\(H_0\))**: The model performs equally well for high sugar (Group X) and low sugar (Group Y) recipes.
+- **Alternative Hypothesis (\(H_a\))**: The model performs differently for high sugar and low sugar recipes.
+
+### Test Statistic
+- Absolute difference in RMSE between high sugar and low sugar groups.
+
+### Significance Level
+- \( \alpha = 0.05 \): The standard threshold for rejecting the null hypothesis.
+- 
+### Results
+- **Observed RMSE Difference**: 91.2998
+- **P-value**: 0.9974
+  
+### Conclusion
+- Since the **p-value (0.9974)** is greater than the significance level (\( \alpha = 0.05 \)), we **fail to reject the null hypothesis**.
+- This indicates that there is insufficient evidence to suggest the model performs unfairly for high sugar and low sugar recipes. The observed difference in RMSE is likely due to random chance.
 
 ---
