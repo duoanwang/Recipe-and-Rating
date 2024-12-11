@@ -94,6 +94,7 @@ The Total Variation Distance (TVD) is an appropriate test statistic for this hyp
 ### Visualization
 The histogram below illustrates the null distribution of permuted TVDs, with a vertical red line indicating the observed TVD:
 
+---
 ## Framing a Prediction Problem
 
 ### Prediction
@@ -106,7 +107,7 @@ Regression
 Calorie Count (Numerical)
 
 
-## Features
+### Features
 We use features that are both descriptive and predictive of calorie count:
 
 1. **Nutritional Information**:
@@ -143,6 +144,43 @@ RSME
 ## Baseline Model
 
 ---
+The baselin model is a **Linear Regression** model, implemented using a scikit-learn pipeline that combines preprocessing and regression.
+
+### Pipeline Components:
+- **Preprocessing**: Handles feature transformations, including standardization of numerical features and one-hot encoding of categorical features.
+- **Regressor**: Uses a simple linear regression model to predict the calorie count.
+
+### Features in the Model
+The model uses the following features to predict calorie count:
+
+Quantitative Features (3):
+- **`sugar`**: Represents the sugar content in grams.
+- **`total_fat`**: Represents the fat content in grams.
+- **`n_steps`**: Represents the number of preparation steps in the recipe.
+  - **Encoding**: These features are standardized using `StandardScaler` to ensure all features contribute equally to the regression model.
+
+Nominal Features (1):
+- **`tags`**: Represents the tags of the recipe (e.g., "dessert," "north-american", "60-minutes-or-less").
+  - **Encoding**: Transformed using `OneHotEncoder` to create binary indicators for each tags.
+
+Feature Transformation
+The preprocessing steps include:
+
+1. **Standardization**:
+   - Applied to quantitative features to ensure they have zero mean and unit variance.
+
+2. **One-Hot Encoding**:
+   - Converts nominal categories in the `tags` feature into binary columns, enabling the model to use categorical information.
+     
+## Model Performance
+
+### Evaluation Metric
+- **Root Mean Squared Error (RMSE)**: Used to measure performance.
+  - RMSE provides an interpretable error in the same unit as the target variable (calories) and penalizes large errors more heavily.
+
+### Baseline RMSE
+- **194.77 calories**
+
 
 ## Final Model
 
