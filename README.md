@@ -162,8 +162,8 @@ We wanted to examine the missingness of 'rating' in the merged DataFrame by test
 
 ## Hypothesis Testing
 
-- **Null Hypothesis (H₀):** The calorie distributions of desserts and courses are the same.
-- **Alternative Hypothesis (Hₐ):** The calorie distributions of desserts and courses differ.
+- **Null Hypothesis (H₀):** The calorie distributions of recipes with sugar and without sugar are the same.
+- **Alternative Hypothesis (Hₐ):** he calorie distributions of recipes with sugar and without sugar differ.
 
 ### Test Statistic
 The test statistic used is the **Total Variation Distance (TVD)**, which measures the overall difference between two distributions.
@@ -172,11 +172,12 @@ The test statistic used is the **Total Variation Distance (TVD)**, which measure
 The significance level (α) is set to **0.05**.
 
 ### Results
-- **Observed TVD:** 0.0000
-- **P-value:** 0.000000
+- **Observed TVD:** 4.0799106421311744e-07
+- **P-value:** 0.084500
 
 ### Conclusion
-Since the p-value (0.000000) is less than the significance level (0.05), we reject the null hypothesis. This suggests that the calorie distributions of desserts and courses are significantly different.
+Since the **p-value (0.084500)** is greater than the significance level of 0.05, we fail to reject the null hypothesis. This suggests that there is insufficient evidence to conclude that the calorie distributions of recipes with sugar and without sugar are different.
+
 
 ### Justification
 The Total Variation Distance (TVD) is an appropriate test statistic for this hypothesis because it captures the overall differences between two distributions without assuming normality or other specific distributional properties.
@@ -185,7 +186,7 @@ The Total Variation Distance (TVD) is an appropriate test statistic for this hyp
 The histogram below illustrates the null distribution of permuted TVDs, with a vertical red line indicating the observed TVD:
 
 <iframe
-  src="assets/permutation_test_tvd.html"
+  src="assets/sugar_vs_no_sugar_ks.html"
   width="600"
   height="400"
   frameborder="0"
