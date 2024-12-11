@@ -129,6 +129,34 @@ We found that there are 3 columns contain missing values, which are `'name'`, `'
 We assess the data and believe that the `'description'` column is NMAR. It represents the description of the recipe that the person who uploaded the recipe write about. If users feel that the recipe is straightforward, they may think that a description is unnecessary or redundant, especially for commonly known dishes. Also, users might be hesitant to include a description if they feel it reveals personal stories, preferences, or other details they are not comfortable sharing publicly. 
 
 ### Missingness Dependency
+We wanted to examine the missingness of 'rating' in the merged DataFrame by testing the dependency of its missingness. 
+<iframe
+  src="assets/Empirical Distribution of the Mean Difference in N_steps.html"
+  width="600"
+  height="400"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/Empirical Distribution of the Mean Difference in Sodium.html"
+  width="600"
+  height="400"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/KDE Plot of N_steps.html"
+  width="600"
+  height="400"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/KDE Plot of Sodium.html"
+  width="600"
+  height="400"
+  frameborder="0"
+></iframe>
 
 ---
 
