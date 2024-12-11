@@ -120,7 +120,6 @@ We use features that are both descriptive and predictive of calorie count:
 
 2. **Preparation Details**:
    - **`n_step`**: The number of preparation steps can indicate recipe complexity, indirectly reflecting calorie level.
-   - **`n_ingredient`**: Recipes with more ingredients may involve calorie-dense items like butter, sugar, or oils, leading to higher calorie counts.
 
 ### Reason for Choosing:
 Helps quantify calorie prediction for real-world applications like meal planning.
@@ -158,20 +157,13 @@ Quantitative Features (3):
 - **`total_fat`**: Represents the fat content in grams.
 - **`n_steps`**: Represents the number of preparation steps in the recipe.
   - **Encoding**: These features are standardized using `StandardScaler` to ensure all features contribute equally to the regression model.
-
-Nominal Features (1):
-- **`tags`**: Represents the tags of the recipe (e.g., "dessert," "north-american", "60-minutes-or-less").
-  - **Encoding**: Transformed using `OneHotEncoder` to create binary indicators for each tags.
-
+    
 Feature Transformation
 The preprocessing steps include:
 
 1. **Standardization**:
    - Applied to quantitative features to ensure they have zero mean and unit variance.
 
-2. **One-Hot Encoding**:
-   - Converts nominal categories in the `tags` feature into binary columns, enabling the model to use categorical information.
-     
 # Model Performance
 
 ## Metrics Used
@@ -183,25 +175,26 @@ The preprocessing steps include:
 ## Performance Metrics
 
 - **RMSE**
-   - Training set: 63.14
-   - Test set:194.77
+   - Training set: 202.570722
+   - Test set: 195.281338
 - **MSE**
-  - Training set: 3986.18 
-  - Test set: 37937.27  
+  - Training set: 41034.897364
+  - Test set: 38134.801087
 - **R² Score**
-  - Training set: 0.99
-  - Test set:0.89   
+  - Training set: 0.902043 
+  - Test set: 0.891276  
+
+---
 
 ## Model Performance Analysis
 
 ### Strengths:
 - **High R² Score**: The \( R^2 \) score of 0.89 on the test set indicates that the model explains 89% of the variance in calorie counts, demonstrating a strong fit.
-- **Low Training RMSE**: The training RMSE of 63.14 shows that the model performs well on the training data.
+- **Low Training RMSE**: The training RMSE of 202.57 shows that the model performs well on the training data.
 
 ### Weaknesses:
-- **Overfitting**: The gap between the training RMSE (63.14) and test RMSE (194.77) suggests that the model is overfitting to the training data, which limits its ability to generalize to unseen data.
-- **Large Test RMSE**: The test RMSE of 194.77 means that, on average, the model's predictions deviate by about 195 calories, which might not be ideal for applications requiring high precision.
-
+- **Overfitting**: The gap between the training RMSE (202.57) and test RMSE (195.28) suggests that the model is slightly overfitting to the training data, which limits its ability to generalize to unseen data.
+- **Large Test RMSE**: The test RMSE of 195.28 means that, on average, the model's predictions deviate by about 195 calories, which might not be ideal for applications requiring high precision.
 
 
 ## Final Model
