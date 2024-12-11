@@ -108,6 +108,13 @@ The Total Variation Distance (TVD) is an appropriate test statistic for this hyp
 ### Visualization
 The histogram below illustrates the null distribution of permuted TVDs, with a vertical red line indicating the observed TVD:
 
+<iframe
+  src="assets/permutation_test_tvd.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 ---
 ## Framing a Prediction Problem
 
@@ -257,6 +264,13 @@ The preprocessing steps include:
 1. **Lower RMSE**: The Final Model achieves significantly lower RMSE for both training and test sets, indicating improved accuracy.
 2. **Higher R²**: The Final Model explains 94.91% of the variance in the test data, compared to 89.13% for the Baseline Model.
 3. **Reduced Overfitting**: The smaller gap between training and test RMSE demonstrates better generalization to unseen data.
+
+<iframe
+  src="assets/feature_importance.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ---
 
