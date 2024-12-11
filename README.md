@@ -123,6 +123,12 @@ By examine this plot, we noticed that the calories increases as the prepare time
 ---
 
 ## Assessment of Missingness
+We found that there are 3 columns contain missing values, which are `'name'`, `'description'`, and `'rating'`. 
+
+### NMAR Analysis
+We assess the data and believe that the `'description'` column is NMAR. It represents the description of the recipe that the person who uploaded the recipe write about. If users feel that the recipe is straightforward, they may think that a description is unnecessary or redundant, especially for commonly known dishes. Also, users might be hesitant to include a description if they feel it reveals personal stories, preferences, or other details they are not comfortable sharing publicly. 
+
+### Missingness Dependency
 
 ---
 
