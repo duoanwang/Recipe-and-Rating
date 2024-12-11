@@ -132,9 +132,13 @@ We assess the data and believe that the `'description'` column is NMAR. It repre
 We wanted to examine the missingness of 'rating' in the merged DataFrame by testing the dependency of its missingness. We are interested in whether the missiness in the 'rating' column depends on the column 'n_steps', which is the number of steps take to make the dish, or the column 'Sodium', which is the amount of sodium in the recipe.
 
 1. N_steps and Rating
+   
    **Null Hypothesis:** The missingness of ratings does not depend on the number of steps it takes to make the dish.
+   
    **Alternate Hypothesis:** The missingness of ratings does depend on the number of steps it takes to make the dish.
+   
    **Test Statistic:** The difference in means between the group of recipes with missing ratings and without missing ratings.
+   
    **Significance Level:** 0.05
    
    We ran a permutation test by shuffling the missingness of rating for 1000 times to collect 1000 simulating mean differences in the two         distributions as described in the test statistic. Here is the Empirical Distribution plot of the Mean Difference in N_steps:
@@ -159,9 +163,13 @@ This KDE plot shows two difference peaks for the two groups, which also suggests
 By calculating the P-values, we get a result of 0 which < 0.05, which means that we reject the null hypothesis that the missingness of      'rating' does not depend on the number of steps it takes to make the dish. This indicates that the missingness of 'rating' does depend on  'n_steps'
 
 2. Sodium and Rating
+   
    **Null Hypothesis:** The missingness of ratings does not depend on the amount of Sodium in the recipe.
+   
    **Alternate Hypothesis:** The missingness of ratings does depend on the amount of Sodium in the recipe.
+   
    **Test Statistic:** The difference in means between the group of recipes with missing ratings and without missing ratings.
+   
    **Significance Level:** 0.05
 
    We performed a permutation test by shuffling the missingness of rating for 1000 times to collect 1000 simulating mean differences in the       two distributions as described in the test statistic.
