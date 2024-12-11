@@ -52,8 +52,8 @@ For this analysis, we examine the distribution of the calories in a recipe. We c
 
 <iframe
   src="assets/calories dist.html"
-  width="800"
-  height="600"
+  width="600"
+  height="400"
   frameborder="0"
 ></iframe>
 
@@ -62,8 +62,8 @@ For this analysis, we explored the relationship between the rating and the calor
 
 <iframe
   src="assets/calories vs. rating.html"
-  width="800"
-  height="600"
+  width="600"
+  height="400"
   frameborder="0"
 ></iframe>
 
@@ -81,8 +81,8 @@ Here is the pivot table for preparation time of recipes and their calories:
 
 <iframe
   src="assets/avg calories by minutes.html"
-  width="800"
-  height="600"
+  width="600"
+  height="400"
   frameborder="0"
 ></iframe>
 By examine this plot, we noticed that the calories increases as the prepare time increases.
