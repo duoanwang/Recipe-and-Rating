@@ -181,11 +181,16 @@ The preprocessing steps include:
 - **R² Score**: Indicates the proportion of variance explained by the model, providing a measure of goodness-of-fit.
 
 ## Performance Metrics
-| **Metric**       | **Training Set** | **Test Set** |
-|-------------------|------------------|--------------|
-| **RMSE**         | 63.14            | 194.77       |
-| **MSE**          | 3986.18          | 37937.27     |
-| **R² Score**     | 0.99             | 0.89         |
+
+- **RMSE**
+   - Training set: 63.14
+   - Test set:194.77
+- **MSE**
+  - Training set: 3986.18 
+  - Test set: 37937.27  
+- **R² Score**
+  - Training set: 0.99
+  - Test set:0.89   
 
 ## Model Performance Analysis
 
