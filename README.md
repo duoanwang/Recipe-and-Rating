@@ -70,6 +70,15 @@ For this analysis, we explored the relationship between the rating and the calor
 ### Interesting Aggregates
 We are interested in whether recipes with higher calories need more time to prepare, so we investigated their relationship by creating a pivot table and then visualize it. First, We group the recipes by `'minutes'` and calculate the average calories for each preparation time using pd.pivot_table(). We categorize `'minutes'` into meaningful bins (e.g., 0-30 mins, 30-60 mins) to make the analysis clearer. Finally, to visualize the results, we create a bar chart using Plotly to show the average calories for each preparation time category or bin. This helps us understand how calorie counts vary with different preparation times.
 
+Here is the pivot table for preparation time of recipes and their calories:
+| prep_time_category   |   calories |
+|:---------------------|-----------:|
+| 0-30 mins            |    347.861 |
+| 30-60 mins           |    445.806 |
+| 1-2 hours            |    558.003 |
+| 2-5 hours            |    565.975 |
+| 5+ hours             |    582.011 |
+
 <iframe
   src="assets/avg calories by minutes.html"
   width="800"
