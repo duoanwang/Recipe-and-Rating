@@ -110,8 +110,8 @@ The histogram below illustrates the null distribution of permuted TVDs, with a v
 
 <iframe
   src="assets/permutation_test_tvd.html"
-  width="800"
-  height="600"
+  width="600"
+  height="400"
   frameborder="0"
 ></iframe>
 
@@ -267,8 +267,8 @@ The preprocessing steps include:
 
 <iframe
   src="assets/feature_importance.html"
-  width="800"
-  height="600"
+  width="600"
+  height="400"
   frameborder="0"
 ></iframe>
 
