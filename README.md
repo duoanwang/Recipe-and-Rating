@@ -172,14 +172,31 @@ The preprocessing steps include:
 2. **One-Hot Encoding**:
    - Converts nominal categories in the `tags` feature into binary columns, enabling the model to use categorical information.
      
-## Model Performance
+# Model Performance
 
-### Evaluation Metric
-- **Root Mean Squared Error (RMSE)**: Used to measure performance.
-  - RMSE provides an interpretable error in the same unit as the target variable (calories) and penalizes large errors more heavily.
+## Metrics Used
 
-### Baseline RMSE
-- **194.77 calories**
+- **Root Mean Squared Error (RMSE)**: Measures the average prediction error in the same units as the target variable (calories). RMSE penalizes larger errors more heavily, making it ideal for this task.
+- **Mean Squared Error (MSE)**: Similar to RMSE but in squared units, providing an alternative perspective on error magnitude.
+- **R² Score**: Indicates the proportion of variance explained by the model, providing a measure of goodness-of-fit.
+
+## Performance Metrics
+| **Metric**       | **Training Set** | **Test Set** |
+|-------------------|------------------|--------------|
+| **RMSE**         | 63.14            | 194.77       |
+| **MSE**          | 3986.18          | 37937.27     |
+| **R² Score**     | 0.99             | 0.89         |
+
+## Model Performance Analysis
+
+### Strengths:
+- **High R² Score**: The \( R^2 \) score of 0.89 on the test set indicates that the model explains 89% of the variance in calorie counts, demonstrating a strong fit.
+- **Low Training RMSE**: The training RMSE of 63.14 shows that the model performs well on the training data.
+
+### Weaknesses:
+- **Overfitting**: The gap between the training RMSE (63.14) and test RMSE (194.77) suggests that the model is overfitting to the training data, which limits its ability to generalize to unseen data.
+- **Large Test RMSE**: The test RMSE of 194.77 means that, on average, the model's predictions deviate by about 195 calories, which might not be ideal for applications requiring high precision.
+
 
 
 ## Final Model
