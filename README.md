@@ -311,6 +311,7 @@ The preprocessing steps include:
   height="400"
   frameborder="0"
 ></iframe>
+
 ### Conclusion
 - Since the **p-value (0.9974)** is greater than the significance level (\( \alpha = 0.05 \)), we **fail to reject the null hypothesis**.
 - This indicates that there is insufficient evidence to suggest the model performs unfairly for high sugar and low sugar recipes. The observed difference in RMSE is likely due to random chance.
