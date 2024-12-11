@@ -61,8 +61,26 @@ For this analysis, we examine the distribution of the calories in a recipe. We c
 ></iframe>
 
 ### Bivariate Analysis
-For this analysis, we 
+For this analysis, we explored the relationship between the rating and the calories. From this plot, we found that the data points are densely packed around ratings between 3 and 5. Lower ratings (e.g., 1-2) do not show many high-calorie items. Higher ratings are associated with a broader range of calorie counts, including some extremely high-calorie items, as indicated by larger, brighter bubbles. Lower ratings (1-2) are predominantly linked to low-calorie items, with fewer high-calorie outliers.
 
+<iframe
+  src="assets/calories vs. rating.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+### Interesting Aggregates
+We are interested in whether recipes with higher calories need more time to prepare, so we investigated their relationship by creating a pivot table and then visualize it. First, We group the recipes by `'minutes'` and calculate the average calories for each preparation time using pd.pivot_table(). We categorize `'minutes'` into meaningful bins (e.g., 0-30 mins, 30-60 mins) to make the analysis clearer. Finally, to visualize the results, we create a bar chart using Plotly to show the average calories for each preparation time category or bin. This helps us understand how calorie counts vary with different preparation times.
+
+<iframe
+  src="assets/avg calories by minutes.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+By examine this plot, we noticed that the calories increases as the prepare time increases.
 
 ---
 
