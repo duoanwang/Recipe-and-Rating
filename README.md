@@ -331,15 +331,15 @@ The preprocessing steps include:
 - **Root Mean Squared Error (RMSE)**: Evaluates the average prediction error, penalizing larger errors more heavily.
 
 ### Hypotheses
-- **Null Hypothesis (\(H_0\))**: The model performs equally well for high sugar (Group X) and low sugar (Group Y) recipes.
-- **Alternative Hypothesis (\(H_a\))**: The model performs differently for high sugar and low sugar recipes.
+- **Null Hypothesis (H₀):**: The model performs equally well for high sugar (Group X) and low sugar (Group Y) recipes.
+- **Alternative Hypothesis (Hₐ):**: The model performs differently for high sugar and low sugar recipes.
 
 ### Test Statistic
 - Absolute difference in RMSE between high sugar and low sugar groups.
 
 ### Significance Level
-- \( \alpha = 0.05 \): The standard threshold for rejecting the null hypothesis.
-- 
+- (α) = 0.05 : The standard threshold for rejecting the null hypothesis.
+  
 ### Results
 - **Observed RMSE Difference**: 91.2998
 - **P-value**: 0.9974
